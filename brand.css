@@ -1,0 +1,719 @@
+/* General Styles */
+body {
+    font-family: Myriad Pro, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+  }
+
+
+/* style.css */
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("fonts/MYRIADPRO-REGULAR.OTF") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: "Myriad Pro", sans-serif;
+}
+  
+    /* Default style untuk desktop */
+    .navbar {
+      display: flex;
+      font-size: 16px;
+      line-height: 1.5;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background-color: #69AF00;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  
+    /* Gaya untuk menu aktif */
+  .navbar ul li a.active {
+    font-weight: bolder; /* Membuat teks tebal */
+    border-bottom: 5px solid #9CC455; /* Garis di bawah teks */
+    padding-bottom: 2px; /* Menambahkan jarak agar tidak terlalu rapat */
+  }
+  
+    .navbar-logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+  
+    .navbar ul {
+      display: flex;
+      gap: 55px;
+      list-style: none;
+    }
+  
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+    }
+  
+    .navbar-icons {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .navbar-icons input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+  
+    .navbar .btn-search {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 21px; /* Ukuran font untuk ikon */
+      color: #ffffff; /* Warna teks/ikon awal */
+      padding-right: 20px;
+      transition: all 0.3s ease; /* Menambahkan transisi untuk efek hover */
+  }
+  
+  .navbar .btn-search:hover {
+  
+      color: #0015ff; /* Warna ikon saat hover */
+  }
+  
+    .navbar .btn-login {
+      padding: 10px 20px;
+      background-color: white;
+      color: #69AF00;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .navbar .btn-login:hover {
+      background-color: #0015ff;
+      color : white;
+    }
+  
+    /* Responsif untuk tablet dan perangkat dengan lebar layar kecil */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 15px 10px;
+      align-items: center; /* Menjaga elemen tetap di tengah */
+      width: 100%;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      align-items: center; /* Menu tetap terpusat secara vertikal */
+      gap: 20px;
+      margin-top: 10px;
+      width: 100%; /* Menu menggunakan lebar penuh */
+      text-align: center; /* Menjaga teks tetap di tengah */
+      padding: 0;
+    }
+  
+    .navbar-logo {
+      margin-bottom: 10px;
+      height: 40px; /* Pastikan ukuran logo tetap proporsional */
+    }
+  
+    .navbar ul li a {
+      font-size: 18px; /* Menyesuaikan ukuran font di tablet */
+    }
+  
+    .navbar-icons {
+      gap: 15px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center; /* Ikon tetap sejajar di tengah */
+      width: 100%;
+    }
+  
+    .navbar .btn-search {
+      font-size: 28px;
+    }
+  
+    .navbar .btn-login {
+      padding: 8px 16px;
+    }
+  }
+  
+    /* Responsif untuk perangkat lebih kecil, seperti ponsel */
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        padding-top: 10px;
+        gap: 5px; /* Menambah jarak antar elemen */
+      }
+  
+      .navbar ul {
+        display: flex; /* Menggunakan flex untuk membuat item dalam baris */
+        gap: 15px; /* Menambah jarak antar item */
+        width: 100%; /* Pastikan menu mengambil lebar penuh */
+        justify-content: center; /* Menjaga menu tetap di tengah */
+        padding: 0; /* Menghapus padding default */
+        text-align: center; /* Teks dalam menu tetap terpusat */
+      }
+  
+      .navbar ul li a {
+        font-size: 14px; /* Menyesuaikan ukuran font */
+      }
+  
+      .navbar-icons {
+        gap: 10px;
+        display: flex;
+        justify-content: center; /* Ikon tetap di tengah */
+        width: 100%;
+      }
+  
+      .navbar .btn-search {
+        font-size: 24px; /* Ukuran ikon sedikit lebih kecil untuk ponsel */
+      }
+  
+      .navbar .btn-login {
+        font-size: 14px;
+        padding: 6px 14px;
+      }
+  
+      .navbar-logo {
+        height: 35px; /* Logo sedikit lebih kecil di ponsel */
+      }
+    }
+  
+    /* Style untuk Pop-up */
+  .search-popup {
+    display: none; /* Default sembunyi */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang transparan */
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-popup-content {
+    background-color: transparent;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .search-popup input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-popup .close-btn {
+    background-color: red;
+    color: #f4f4f4;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Styling tambahan untuk responsif */
+  @media (max-width: 768px) {
+    .search-popup-content {
+      width: 80%;
+    }
+  }
+  
+  
+  .btn-login-submit:hover,
+  .btn-cancel:hover {
+    opacity: 0.8;
+  }
+  
+  
+
+/* MSI Section */
+.brand2 {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.logo-msi img, .logoTS img, .logo-acer img, .logo-Predator img, .logoDF img {
+  width: 540px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+/* MSI Info Section */
+.brand-info {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.brand-info p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Product Section */
+.product-section {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Filter */
+.product-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #e9f5e9;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #c6e6c6;
+  margin-bottom: 20px;
+}
+
+.product-filter label {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #333;
+}
+
+.product-filter select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #c6e6c6;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Product List */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+}
+
+.product-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.product-list::-webkit-scrollbar-thumb {
+  background-color: #c6e6c6;
+  border-radius: 4px;
+}
+
+.product-list::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.product-item {
+  width: 300px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+.product-item img {
+  width: 40%;
+  height: auto;
+}
+
+.product-item h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+  padding: 0 10px;
+}
+
+.product-item p {
+  font-size: 18px;
+  color: #007b00;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-details{
+  scrollbar-color: #69AF00 #1a1a1a; /* (Warna thumb, Warna track) */
+  scrollbar-width: thin; /* Lebar scrollbar menjadi lebih tipis */
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsif untuk Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .brand-info, .product-section {
+      padding: 20px;
+      margin: 10px 20px;
+      max-width: 90%;
+  }
+
+  .product-filter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .product-list {
+      flex-direction: column;
+      max-height: 300px;
+      gap: 15px;
+  }
+
+  .product-item {
+      width: 100%;
+      margin: 0 auto;
+  }
+
+  .product-item img {
+      width: 30%;
+  }
+
+  .popup-content {
+      width: 85%;
+      max-width: 350px;
+  }
+
+  .close-btn {
+      font-size: 20px;
+  }
+
+  .logo-msi img, .logoTS img, .logo-acer img, .logo-Predator img, .logoDF img {
+      width: 300px;
+  }
+}
+
+/* Responsif untuk HP (di bawah 768px) */
+@media (max-width: 768px) {
+  .brand-info, .product-section {
+      padding: 15px;
+      margin: 5px 10px;
+      max-width: 100%;
+  }
+
+  .product-list {
+      max-height: 250px;
+  }
+
+  .product-item {
+      width: 100%;
+      margin: 5px auto;
+  }
+
+  .product-item img {
+      width: 25%;
+  }
+
+  .popup-content {
+      width: 95%;
+      max-width: 300px;
+      padding: 15px;
+  }
+
+  .close-btn {
+      font-size: 18px;
+  }
+
+  .logo-msi img, .logoTS img, .logo-acer img, .logo-Predator img, .logoDF img {
+      width: 200px;
+  }
+}
+
+
+
+/* Garis di Atas Footer */
+.footer-top-border {
+    width: 100%; /* Lebar penuh */
+    height: 30px; /* Tinggi garis */
+    background-color: #7AC142; /* Warna garis hijau */
+    margin-bottom: 0px; /* Hilangkan jarak */
+  }
+  
+  /* Footer Container */
+  footer {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Logo Utama di Tengah */
+  .footer-company-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-company-logo img {
+    width: 80px; /* Ukuran logo */
+    height: auto; /* Pertahankan rasio aspek */
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
+  
+  .footer-content div {
+    width: 23%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-content p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-content ul li {
+    margin-bottom: 5px;
+  }
+  
+    /* Footer Bottom */
+    .footer-bottom {
+      position: relative; /* Tetap berada di posisi bawah */
+      bottom: 0; /* Menempel di bagian bawah */
+      left: 0; /* Menempel di sisi kiri */
+      right: 0; /* Menempel di sisi kanan */
+      width: 100%; /* Lebar penuh layar */
+      background-color: rgb(82, 80, 80); /* Warna latar belakang */
+      color: white; /* Warna teks */
+      text-align: center; /* Teks di tengah */
+      padding: 10px 0; /* Ruang atas dan bawah */
+      font-size: 12px; /* Ukuran font */ /* Pastikan muncul di atas elemen lainnya */
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    }
+    
+  /* Styles for Brand Logos */
+  .footer-brand-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Top Row (2 logo kiri dan kanan) */
+  .footer-brands-grid .top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 160%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-left: 0px; /* Geser sedikit ke kanan */
+  }
+  
+  /* Middle Row (1 logo di tengah) */
+  .footer-brands-grid .middle-row {
+    display: flex;
+    justify-content: center;
+    width: 130%;
+    margin: 10px 0;
+  }
+  
+  /* Bottom Row (2 logo kiri dan kanan) */
+  .footer-brands-grid .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    width: 160%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-right: 20px; /* Geser sedikit ke kiri */
+  }
+  
+  /* Logo Styling */
+  .footer-brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-brand-logo img {
+    width: 60px;
+    height: auto;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .footer-brands-grid {
+      display: flex;
+      flex-direction: column; /* Tumpuk logo secara vertikal */
+      align-items: center; /* Pusatkan elemen di tengah */
+      gap: 15px; /* Tambahkan jarak antar baris */
+    }
+  
+    .footer-brands-grid .top-row,
+    .footer-brands-grid .middle-row,
+    .footer-brands-grid .bottom-row {
+      flex-wrap: wrap; /* Izinkan elemen melanjutkan ke bawah */
+      justify-content: center; /* Posisikan elemen di tengah */
+      gap: 10px; /* Tambahkan jarak antar elemen */
+    }
+  
+    .footer-brand-logo {
+      flex: 1 1 100%; /* Setiap logo menggunakan satu baris penuh */
+      text-align: center; /* Pusatkan elemen */
+      margin: 0 auto; /* Pusatkan elemen dalam container */
+    }
+  
+    .footer-brand-logo img {
+      width: 60px; /* Sesuaikan ukuran logo */
+      height: auto; /* Pertahankan rasio aspek */
+    }
+  }
+  
+  /* Responsiveness for Mobile (Small Screens) */
+  @media (max-width: 480px) {
+    .footer-brands-grid .top-row,
+    .footer-brands-grid .middle-row,
+    .footer-brands-grid .bottom-row {
+      margin: 0; /* Hapus margin */
+      padding: 0; /* Hapus padding */
+      gap: 15px; /* Tingkatkan jarak antar logo */
+    }
+    
+  
+    .footer-brands-grid .top-row,
+    .footer-brands-grid .middle-row,
+    .footer-brands-grid .bottom-row {
+      display: flex;
+      flex-direction: column; /* Tumpuk logo dalam kolom */
+      align-items: left; /* Pusatkan logo */
+      gap: 5px; /* Tambahkan jarak antar logo dalam baris */
+    }
+  
+    .footer-brand-logo {
+      margin: 0; /* Hapus margin horizontal */
+    }
+  
+    .footer-brand-logo img {
+      width: 50px;
+      height: auto; /* Pertahankan rasio */
+    }
+  }
+  
+  .footer-content {
+    display: flex; /* Susun semua bagian secara horizontal */
+    flex-wrap: wrap; /* Bungkus elemen ke baris berikutnya jika tidak cukup ruang */
+    justify-content: space-between; /* Jarak merata antar elemen */
+    gap: 20px; /* Jarak antar bagian */
+  }
+  
+  .footer-content ul {
+    list-style: none; /* Hilangkan bullet */
+    padding: 0; /* Hilangkan padding default */
+  }
+  
+  .footer-content ul li a {
+    text-decoration: none; /* Hilangkan garis bawah pada tautan */
+    color: #000000; /* Warna teks */
+    margin-left: 10px; /* Jarak antara ikon dan teks */
+    font-size: 14px; /* Ukuran font */
+  }
+  
+  .footer-content ul li a:hover {
+    text-decoration: underline; /* Tambahkan garis bawah saat hover */
+    color: #9CC455;
+  }
+  
+  .footer-content p {
+    font-weight: bold; /* Penekanan pada judul setiap bagian */
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-content .fa-brands {
+    font-size: 18px; /* Ukuran ikon */
+    color: #000000; /* Warna ikon */
+  }
+
+/*backbutton*/
+.back-button{
+  padding: 10px;
+}
+.back-button button {
+  background-color:transparent;
+  color: #69AF00;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;  
+}
+
+.back-button button:hover {
+  background-color: #69AF00;
+  color: white;
+}
+
